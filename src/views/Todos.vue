@@ -5,8 +5,9 @@
     <hr />
     <AddTodo @added-todo="addedTodo" />
     <!-- TodoList this component will be renderd when todos.length are  true, that is todos.length not 0. -->
+    <Loader v-if="isLoading" />
     <TodoList
-      v-if="todos.length"
+      v-else-if="todos.length"
       :todos="todos"
       v-on:remove-todo="removeTodo"
     />
@@ -18,6 +19,7 @@
 //@ - indicate src
 import TodoList from "@/components/TodoList.vue";
 import AddTodo from "@/components/AddTodo.vue";
+import Loader from "@/components/Loader.vue";
 
 // import TodoList from './components/TodoList.vue';//work
 
@@ -26,20 +28,25 @@ export default {
   data() {
     return {
       todos: [],
+      isLoading: true,
     };
   },
   components: {
     //Component registration
-    TodoList, //TodoList: TodoList
+    Loader,
     AddTodo,
+    TodoList, //TodoList: TodoList
   },
 
   //# LIFECYCLE HOOKS - work with server - we can do request when component rendered. (componentDidMount - mounted)
   mounted() {
-    fetch("https://jsonplaceholder.typicode.com/todos/?_limit=7")
+    fetch("https://jsonplaceholder.typicode.com/todos/?_limit=3")
       .then((response) => response.json())
       .then((json) => {
-        this.todos = json;
+        setTimeout(() => {
+          this.todos = json;
+          this.isLoading = false;
+        }, 1000);
       });
   },
   methods: {
