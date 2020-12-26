@@ -9,7 +9,7 @@
     <!-- <Home /> -->
     <!--✅ -->
     <router-view></router-view>
-    <!-- in here will come some page-->
+    <!-- in here will be render our components (some page)-->
   </div>
 </template>
 

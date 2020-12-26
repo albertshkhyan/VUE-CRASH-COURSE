@@ -7,10 +7,12 @@ console.log('Home', Home);
 
 Vue.use(VueRouter)//register router as plugin
 
+
+//in heere every object is special route
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    // name: 'Home',
     component: Home
   },
   {
