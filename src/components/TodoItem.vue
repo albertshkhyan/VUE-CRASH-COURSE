@@ -9,7 +9,7 @@
       <!-- To dynamically install or remove CSS classes, you can pass an object to the v-bind: class directive: -->
       <div v-bind:class="{ done: todo.completed }">
         <input type="checkbox" v-on:change="hanelChange(todo)" />
-        id - {{ todo.id }} / index - {{ index }} {{ todo.title }}
+        {{ index + 1 }} {{ todo.title | uppercaseTitle }}
       </div>
       <!-- CUTOM EVENTS with $emit("eventName", pass argumetns) - when triger  remove-todo event, we can triger it in parent component. 
       We can handle remove-todo in parent component. 
@@ -51,6 +51,13 @@ export default {
       //   console.log(todo);
       //   console.log("todo.completed", todo.completed);
       todo.completed = !todo.completed;
+    },
+  },
+  filters: {
+    uppercaseTitle(value) {
+      console.log("value of filter fn - ", value);
+      //# now in here we can transform values. before render in template we transform data.
+      return value.toUpperCase();
     },
   },
 };
