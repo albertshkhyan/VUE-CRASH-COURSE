@@ -55,7 +55,7 @@ export default {
   },
   filters: {
     uppercaseTitle(value) {
-      console.log("value of filter fn - ", value);
+      // console.log("value of filter fn - ", value);
       //# now in here we can transform values. before render in template we transform data.
       return value.toUpperCase();
     },
