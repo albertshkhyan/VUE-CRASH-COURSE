@@ -1,15 +1,9 @@
 <template>
-  <div id="App">
-    <h1>Todo application</h1>
+  <div>
+    <h2>Todo application</h2>
     <hr />
-    <!-- <todo-list /> -->
-    <!--✅ -->
-    <!-- we must listen our custom event on that component in which implement custom event  -->
-
-    <!-- <Home /> -->
-    <!--✅ -->
-    <router-view></router-view>
-    <!-- in here will come some page-->
+    <AddTodo @added-todo="addedTodo" />
+    <TodoList :todos="todos" v-on:remove-todo="removeTodo" />
   </div>
 </template>
 
@@ -17,7 +11,6 @@
 //@ - indicate src
 import TodoList from "@/components/TodoList.vue";
 import AddTodo from "@/components/AddTodo.vue";
-// import Home from "@/views/Home.vue";
 
 // import TodoList from './components/TodoList.vue';//work
 
@@ -30,7 +23,6 @@ export default {
   },
   components: {
     //Component registration
-    // Home,
     TodoList, //TodoList: TodoList
     AddTodo,
   },
@@ -59,14 +51,3 @@ export default {
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
