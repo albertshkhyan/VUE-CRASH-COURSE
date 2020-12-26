@@ -4,7 +4,13 @@
     <router-link to="/">Home</router-link>
     <hr />
     <AddTodo @added-todo="addedTodo" />
-    <TodoList :todos="todos" v-on:remove-todo="removeTodo" />
+    <!-- TodoList this component will be renderd when todos.length are  true, that is todos.length not 0. -->
+    <TodoList
+      v-if="todos.length"
+      :todos="todos"
+      v-on:remove-todo="removeTodo"
+    />
+    <p v-else>No todos!</p>
   </div>
 </template>
 
