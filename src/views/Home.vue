@@ -11,8 +11,9 @@
       voluptas tempora corrupti exercitationem soluta doloremque possimus, optio
       quis maiores? Facilis, sed.
     </div>
-
-    <a href="/todos">Todos</a>
+    <!--do reload of page-->
+    <!-- <a href="/todos">Todos</a> -->
+    <router-link to="todos">Todos</router-link>
     <!-- <router-view></router-view> -->
   </div>
 </template>

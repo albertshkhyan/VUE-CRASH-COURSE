@@ -12,7 +12,7 @@ Vue.use(VueRouter)//register router as plugin
 const routes = [
   {
     path: '/',
-    // name: 'Home',
+    name: 'Home',
     component: Home
   },
   {
@@ -27,8 +27,6 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',//by default browser use hash
-  // base: process.env.BASE_URL,
-  base: "http://localhost:8080",
   routes
 })
 

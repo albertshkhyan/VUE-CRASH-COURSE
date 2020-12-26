@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>Todo application</h2>
+    <router-link to="/">Home</router-link>
     <hr />
     <AddTodo @added-todo="addedTodo" />
     <TodoList :todos="todos" v-on:remove-todo="removeTodo" />
